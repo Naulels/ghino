@@ -1,0 +1,20 @@
+BUILD APK "SỔ GHI NỢ" BẰNG GITHUB (không cần cài Android Studio)
+
+1. Tạo tài khoản GitHub (miễn phí) và tạo repository mới (Private cũng được).
+2. Giải nén file zip này, rồi tải TOÀN BỘ thư mục lên repository
+   (nút "Add file" > "Upload files"). Nhớ thư mục ẩn .github phải được tải lên.
+   Cách dễ hơn: dùng git push nếu bạn quen.
+3. Vào tab "Actions" > workflow "Build APK" > chờ chạy xong (khoảng 5-8 phút).
+   Nếu chưa tự chạy: chọn "Run workflow".
+4. Mở lần chạy thành công > mục "Artifacts" > tải "so-ghi-no-apk" (file zip chứa app-debug.apk).
+5. Chép app-debug.apk vào điện thoại Android, mở lên và cài đặt
+   (cho phép "Cài đặt ứng dụng không rõ nguồn" nếu máy hỏi).
+
+Ghi chú:
+- App chạy hoàn toàn offline, dữ liệu lưu trong máy.
+- Nút "Tải file .txt" sẽ mở bảng chia sẻ để lưu/gửi file sao lưu.
+- APK này là bản debug, đủ để cài dùng cá nhân. Đưa lên CH Play cần ký bản release.
+
+Build trên máy (nếu có Node 20 + Android Studio + JDK 17):
+  npm install && npm run build && npx cap add android && npx cap sync android
+  npx cap open android   (rồi Build > Build APK)
